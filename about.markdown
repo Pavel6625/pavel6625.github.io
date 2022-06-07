@@ -1,6 +1,6 @@
 ---
 layout: page
-title: titles.portfolio
+title: nav.portfolio
 permalink: /about/
 ---
 {% translate_file about/about.md %}

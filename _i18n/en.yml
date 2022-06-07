@@ -1,3 +1,10 @@
-titles:
-  title: "Pavel Shlepnev"
+nav:
+  blog: "Blog"
   portfolio: "Portfolio"
+  search: "Search"
+  home: "Home"
+titles:
+  site: "Pavel Shlepnev"
+  description: "We've got to move on"
+  blog: "Blog Archives"
+  recent: "Recent Posts"

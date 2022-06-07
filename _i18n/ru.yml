@@ -1,3 +1,10 @@
-titles:
-  title: "Павел Шлепнёв"
+nav:
+  blog: "Блог"
   portfolio: "Портфолио"
+  search: "Поиск"
+  home: "Главная"
+titles:
+  site: "Павел Шлепнёв"
+  description: "Двигаться дальше"
+  blog: "Блог"
+  recent: "Последние записи"
