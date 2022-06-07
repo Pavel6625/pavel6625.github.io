@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<main>
+    <article>
+        <div class="article-header">
+            <h2>{{ post.title }}</h2>
+            <p><i class="bi bi-calendar"></i> {{ post.date | date: "%b %d" }}</p>
+        </div>
+        <div class="article-body mt-4">
+            {% if post.picture %}<img class="img-fluid mb-3" style="max-height:600px;" src="{{ post.picture }}" />{% endif %}
+            {{ content }}
+        </div>
+    </article>
+</main>
