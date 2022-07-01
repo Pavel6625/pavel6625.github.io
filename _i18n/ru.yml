@@ -1,6 +1,6 @@
 nav:
   blog: "Блог"
-  portfolio: "Портфолио"
+  about: "About"
   search: "Поиск"
   home: "Главная"
 titles:
@@ -8,3 +8,6 @@ titles:
   description: "Двигаться дальше"
   blog: "Блог"
   recent: "Последние записи"
+continue: "Продолжить чтение"
+language: "Язык"
+more: "Больше"

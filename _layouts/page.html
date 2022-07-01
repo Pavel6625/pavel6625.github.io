@@ -2,7 +2,9 @@
 layout: default
 ---
 
-<main>
-    <h1>{{ page.title }}</h1>
+{% assign title_ru = page.title_ru %}
+{% assign title_en = page.title_en %}
+<main class="container my-4">
+    <h1>{% if site.lang == 'en' %}{{ page.title_en | default: page.title }}{% elsif site.lang == 'ru' %}{{ page.title_ru | default: page.title }}{% endif %}</h1>
     {{ content }}
 </main>

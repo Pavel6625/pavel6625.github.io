@@ -1,6 +1,6 @@
 nav:
   blog: "Blog"
-  portfolio: "Portfolio"
+  about: "About"
   search: "Search"
   home: "Home"
 titles:
@@ -8,3 +8,6 @@ titles:
   description: "We've got to move on"
   blog: "Blog Archives"
   recent: "Recent Posts"
+continue: "Continue reading"
+language: "Language"
+more: "More"

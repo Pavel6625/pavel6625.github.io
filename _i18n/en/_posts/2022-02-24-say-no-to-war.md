@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  "Potesting Russia’s Warfare"
+title: "Potesting Russia’s Warfare"
 date:   2022-02-24 21:03:10 +0300
-categories: poetry
+category: poetry
 description: Say no to war
+picture: /assets/img/pexels-arthouse-studio-4588790.jpg
 ---
 I wish I could stop this war,  
 But I can't – it's against the law  

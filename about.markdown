@@ -1,6 +1,8 @@
 ---
 layout: page
-title: nav.portfolio
+title_en: About
+title_ru: Обо мне
 permalink: /about/
 ---
+
 {% translate_file about/about.md %}
