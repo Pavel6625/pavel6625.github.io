@@ -1,7 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>{{ page.title }} | {% t titles.site %}</title>
+{% assign title_ru = page.title_ru %}
+{% assign title_en = page.title_en %}
+<title>{% if site.lang == 'en' %}{{ page.title_en | default: page.title }}{% elsif site.lang == 'ru' %}{{ page.title_ru | default: page.title }}{% endif %} | {% t titles.site %}</title>
 <link rel="stylesheet" href="/assets/css/styles.css">
 
 <style>

@@ -1,16 +1,23 @@
 ---
-title: Blog Archives
+title_en: Blog
+title_ru: Блог
 layout: page
 ---
 
 <!-- post list -->
-<div class="blogpost-title">
 {% for post in paginator.posts %}
-<li><a href="{{post.url | prepend: site.baseurl}}"><h3>{{post.title}}</h3></a></li>
-<span>Posted at {{ post.date | date: "%b %d" }}</span>
-{{post.excerpt}}
-{% endfor %}
+<div class="row">
+  <div class="col-md-9 order-2 order-md-1">
+    <article class="blog-post">
+      <span class="small text-secondary">{{ post.category }}</span>
+      <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="blog-post-title mb-1">{{ post.title }}</h3></a>
+      <p class="blog-post-meta">{{ post.date | date_to_long_string: "ordinal" }}</p>
+      {{ post.excerpt }}
+    </article>    
+  </div>
+  <div class="col-md-3 order-1 order-md-2"><img class="img-thumbnail" src="{{ post.picture | prepend: site.baseurl }}"></div>
 </div>
+{% endfor %}
 
 <!-- pagination -->
 {% if paginator.total_pages > 1 %}

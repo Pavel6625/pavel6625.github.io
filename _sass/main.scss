@@ -1,2 +1,13 @@
+
+$primary: #8F2700;
+$secondary: #DBAC70;
+$light: #fff5e2;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "light": $light
+);
+
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "./assets/stylesheets/_bootstrap.scss";
