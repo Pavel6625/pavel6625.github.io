@@ -13,6 +13,6 @@ What is most catchy for me is the chord progression used in the song. And now it
 So I couldn't hold myself not to compose an arrangement. And here it is, as piano scores! It starts from refraining the chorus in a smooth rhythm, next flashes of chords break in accompanying *"She's up all night 'til the sun"*, then your fingers dance with the piano. 'Coda 2' is for the second verse with flat chords in the right hand and the baseline in the left hand resembling the synth solo in the original song.
 
 It should go something like this:
-<audio src="./assets/media/Get Lucky.mp3" controls>Doesn't play in your browser...</audio>
+<audio src="/assets/media/Get_Lucky.mp3" controls>Doesn't play in your browser...</audio>
 
 [Download it for free!](https://www.dropbox.com/s/ln78w1c4ootd2q2/Get%20Lucky.pdf?dl=0)
