@@ -21,8 +21,9 @@
 email: pavel.shlepnev@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   We've got to move on
+  Двигаться дальше
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://pavelshlepnev.space" # the base hostname & protocol for your site, e.g. http://example.com
 languages: ["en", "ru"]
 exclude_from_localizations: ["javascript", "images", "css"]
 

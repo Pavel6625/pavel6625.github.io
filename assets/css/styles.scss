@@ -2,6 +2,7 @@
 ---
 @import "main.scss";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+@import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
 
 /* stylelint-disable selector-list-comma-newline-after */
 
@@ -95,7 +96,7 @@ h1, h2, h3, h4, h5, h6 {
   * Footer
   */
 .blog-footer {
-  padding: 2.5rem 0;
+  padding: 2rem 0 2.5rem;
   color: #727272;
   text-align: center;
   background-color: $light;
