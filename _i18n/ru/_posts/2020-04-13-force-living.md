@@ -4,7 +4,7 @@ title: "Заставлять себя жить"
 date:   2020-04-13 22:19:10 +0300
 category: poetry
 description: Всё, что остаётся делать в кризис
-picture: /assets/img/54.jpg
+image: /assets/img/54.jpg
 ---
 Заставлять себя жить...  
 Даже когда казалось бы не для чего,  

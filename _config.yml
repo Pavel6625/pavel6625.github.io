@@ -36,6 +36,7 @@ plugins:
   - jekyll-multiple-languages-plugin
   - jekyll-coffeescript
   - jekyll-paginate
+  - jekyll-seo-tag
 
 sass:
   load_paths: ["C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/bootstrap-5.1.3", "/github/workspace/vendor/bundle/ruby/2.7.0/gems/bootstrap-5.1.3"]

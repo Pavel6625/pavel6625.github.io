@@ -4,7 +4,7 @@
 {% assign title_en = page.title_en %}
 <title>{% if site.lang == 'en' %}{{ page.title_en | default: page.title }}{% elsif site.lang == 'ru' %}{{ page.title_ru | default: page.title }}{% endif %} | {% t titles.site %}</title>
 <link rel="stylesheet" href="/assets/css/styles.css">
-
+{% seo %}
 <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -58,5 +58,5 @@
     }
 </style>
 
-    <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
