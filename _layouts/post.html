@@ -11,7 +11,7 @@ layout: default
             <p><i class="bi bi-calendar"></i> {{ page.date | date_to_long_string: "ordinal" }}</p>
         </div>
         <div class="article-body mt-4">
-            {% if page.picture %}<img class="img-fluid mb-3" style="max-height:600px;" src="{{ page.picture | prepend: site.baseurl }}" />{% endif %}
+            {% if page.image %}<img class="img-fluid mb-3" style="max-height:600px;" src="{{ page.image | prepend: site.baseurl }}" />{% endif %}
             {{ content }}
         </div>
     </article>
