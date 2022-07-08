@@ -4,3 +4,10 @@
 - [Арткаскад](https://artcascade.site) – патформа для живого коллективного творчества
 - [Volvox](https://volvox.site) – научно-популярный портал
 - [Говорить Истину](http://speakthetruth.ru.com) – блог-платформа, где делятся жизненным опытом
+
+#### Контакты
+- [Твиттер](https://twitter.com/pavel_shlepnev)
+- [Facebook](https://www.facebook.com/pavelshlepnevarts)
+- [Instagram](https://www.instagram.com/pavelshlepnev/)
+- [ВКонтакте](https://vk.com/public93689497)
+- [Электронная почта](mailto:{{ site.email }})
