@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Potesting Russia’s Warfare"
+title: "Protesting Russia’s Warfare"
 date:   2022-02-24 21:03:10 +0300
 category: poetry
 description: Say no to war
