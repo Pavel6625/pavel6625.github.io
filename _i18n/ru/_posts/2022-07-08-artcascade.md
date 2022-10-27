@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Арткаскад"
-date:   2020-07-08 10:45:33 +0300
+date:   2022-07-08 10:45:33 +0300
 category: project
 description: Платформа для живого коллективного творчества
 image: /assets/img/Artcascade_bg_white.png
