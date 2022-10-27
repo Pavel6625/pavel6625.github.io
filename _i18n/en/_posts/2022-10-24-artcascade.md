@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Artcascade"
-date:   2020-10-24 10:45:33 +0300
+date:   2022-10-24 10:45:33 +0300
 category: project
 description: The platform for live collective creation
 image: /assets/img/Artcascade_bg_white.png
