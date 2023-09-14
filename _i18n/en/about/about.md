@@ -3,7 +3,6 @@ The purpose of this resource is to put together all my creative projects so I co
 ### Here is the list of projects I created
 - [Artcascade](https://artcascade.site) – the platform for live collective creation
 - [Volvox](https://volvox.site) – a popular science portal
-- [Speak the Truth](http://speakthetruth.ru.com) – a blog platform for sharing life experience
 
 #### Contacts
 - [Twitter](https://twitter.com/pavel_shlepnev)
