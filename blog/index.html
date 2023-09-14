@@ -1,6 +1,7 @@
 ---
 title_en: Blog
 title_ru: Блог
+title: Blog
 layout: page
 ---
 
@@ -21,27 +22,17 @@ layout: page
 
 <!-- pagination -->
 {% if paginator.total_pages > 1 %}
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-  {% else %}
-    <span>&laquo; Prev</span>
-  {% endif %}
-
-  {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <span class="pagenum">{{ page }}</span>
-    {% elsif page == 1 %}
-      <a href="/blog">{{ page }}</a>
-    {% else %}
-      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-    {% endif %}
-  {% endfor %}
-
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-  {% else %}
-    <span>Next &raquo;</span>
-  {% endif %}
-</div>
+<nav aria-label="Cascades pages" class="mt-3">
+  <ul class="pagination justify-content-center">
+      <li class="page-item{% unless paginator.previous_page %} disabled{% endunless %}">
+          <a class="page-link" href="{% if paginator.previous_page %}{{ paginator.previous_page_path | relative_url }}{% else %}#{% endif %}"><i class="bi bi-arrow-left"></i></a>
+      </li>
+      {% for page in (1..paginator.total_pages) %}
+      <li class="page-item{% if page == paginator.page %} active{% endif %}"><a class="page-link" href="{% if page == 1 %}{{ '/blog' | relative_url }}{% else %}{{ site.paginate_path | relative_url | replace: ':num', page }}{% endif %}">{{ page }}</a></li>
+      {% endfor %}
+      <li class="page-item{% unless paginator.next_page %} disabled{% endunless %}">
+          <a class="page-link" href="{% if paginator.next_page %}{{ paginator.next_page_path | relative_url }}{% else %}#{% endif %}"><i class="bi bi-arrow-right"></i></a>
+      </li>
+  </ul>
+</nav>
 {% endif %}
