@@ -25,7 +25,7 @@ layout: default
               <div class="row g-0">
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">{{ post.title }}</h5>
+                    <h5 class="card-title"><a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h5>
                     <p class="card-text">{{ post.description }}</p>
                     <p class="card-text"><small class="text-muted">{{ post.date | date_to_long_string: "ordinal" }}</small></p>
                   </div>
