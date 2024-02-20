@@ -48,6 +48,18 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2.5rem;
 }
 
+.card-img-top {
+  height: 250px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.pswp-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @media (min-width: 768px) {
   .display-4 {
     font-size: 3rem;

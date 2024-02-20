@@ -11,3 +11,4 @@ $theme-colors: (
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "./assets/stylesheets/_bootstrap.scss";
+@import url(https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css);
