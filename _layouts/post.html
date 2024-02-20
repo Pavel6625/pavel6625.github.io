@@ -21,17 +21,18 @@ layout: default
           {% assign posts = site.related_posts | sample: 2 %}
           {% for post in posts %}
           <div class="col">
-            <div class="card">
+            <div class="card h-100">
               <div class="row g-0">
                 <div class="col-md-8">
                   <div class="card-body">
+                    <strong class="d-inline-block mb-2 text-primary">{{ post.category }}</strong>
                     <h5 class="card-title"><a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h5>
                     <p class="card-text">{{ post.description }}</p>
                     <p class="card-text"><small class="text-muted">{{ post.date | date_to_long_string: "ordinal" }}</small></p>
                   </div>
                 </div>
-                <div class="col-md-4">
-                  <img src="{{ post.image }}" class="img-fluid rounded-end">
+                <div class="col-md-4 d-none d-md-inline-block" style="height: 200px;">
+                  <img src="{{ post.image }}" class="img-fluid card-img rounded-end">
                 </div>
               </div>
             </div>  

@@ -54,6 +54,13 @@ h1, h2, h3, h4, h5, h6 {
   object-position: center;
 }
 
+.card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .pswp-gallery img {
   width: 100%;
   height: 100%;
