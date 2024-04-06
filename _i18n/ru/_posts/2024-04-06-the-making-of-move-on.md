@@ -15,4 +15,4 @@ image: /assets/img/vlcsnap-2024-04-06-11h11m40s519.png
 
 Проект и все материалы песни доступны на [Арткаскаде](https://artcascade.site/cascades/54).
 
-Текст песни можно найти [здесь](https://pavelshlepnev.space/music/2023/12/06/move-on.html)
+Текст песни можно найти [здесь](https://pavelshlepnev.space/music/2023/12/06/move-on.html).
