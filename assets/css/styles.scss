@@ -87,6 +87,13 @@ h1, h2, h3, h4, h5, h6 {
   }  
 }
 
+@media (max-height: 500px) {
+  #hero > div {
+    padding-top: 5rem;
+    padding-left: 5rem;
+  }  
+}
+
 .flex-auto {
   flex: 0 0 auto;
 }
