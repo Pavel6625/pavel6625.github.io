@@ -25,4 +25,4 @@ image: /assets/img/photo_2024-11-12_17-59-45.jpg
 
 Заранее спасибо!
 
-<a href="https://experiment.pavelshlepnev.space" role="button" class="btn btn-primary">Пройти исследование</a>
+<a href="https://experiment.pavelshlepnev.space/accounts/signup" role="button" class="btn btn-primary">Зарегистрироваться на исследование</a>
