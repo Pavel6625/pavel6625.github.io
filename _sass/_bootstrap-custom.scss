@@ -1,0 +1,80 @@
+// Bootstrap, trimmed to what this site actually renders.
+//
+// Replaces the wholesale @import of bootstrap.scss. Every component below was
+// confirmed present in the built HTML; everything commented out was confirmed
+// absent (checked against _site, which includes rendered Markdown).
+//
+// If you add markup that uses a dropped component, uncomment its line here —
+// nothing else needs changing.
+
+// Required foundation.
+@import "./assets/stylesheets/bootstrap/functions";
+@import "./assets/stylesheets/bootstrap/variables";
+@import "./assets/stylesheets/bootstrap/variables-dark";
+@import "./assets/stylesheets/bootstrap/maps";
+@import "./assets/stylesheets/bootstrap/mixins";
+@import "./assets/stylesheets/bootstrap/utilities";
+
+// Base layer.
+@import "./assets/stylesheets/bootstrap/root";
+@import "./assets/stylesheets/bootstrap/reboot";
+@import "./assets/stylesheets/bootstrap/type";
+@import "./assets/stylesheets/bootstrap/images";     // img-fluid, img-thumbnail, figure
+@import "./assets/stylesheets/bootstrap/containers";
+@import "./assets/stylesheets/bootstrap/grid";
+
+// Components in use. Forms and helpers are pulled in per-partial rather than
+// wholesale: the site has one text input and no validation, checkboxes,
+// selects, ranges or floating labels.
+@import "./assets/stylesheets/bootstrap/forms/labels";
+@import "./assets/stylesheets/bootstrap/forms/form-text";
+@import "./assets/stylesheets/bootstrap/forms/form-control";
+@import "./assets/stylesheets/bootstrap/forms/input-group";
+// @import "./assets/stylesheets/bootstrap/forms/form-select";
+// @import "./assets/stylesheets/bootstrap/forms/form-check";
+// @import "./assets/stylesheets/bootstrap/forms/form-range";
+// @import "./assets/stylesheets/bootstrap/forms/floating-labels";
+// @import "./assets/stylesheets/bootstrap/forms/validation";
+
+@import "./assets/stylesheets/bootstrap/buttons";
+@import "./assets/stylesheets/bootstrap/transitions"; // collapsing, fade
+@import "./assets/stylesheets/bootstrap/dropdown";    // language menu
+@import "./assets/stylesheets/bootstrap/nav";         // footer social row
+@import "./assets/stylesheets/bootstrap/navbar";
+@import "./assets/stylesheets/bootstrap/card";
+
+@import "./assets/stylesheets/bootstrap/helpers/ratio";
+@import "./assets/stylesheets/bootstrap/helpers/stretched-link";
+@import "./assets/stylesheets/bootstrap/helpers/visually-hidden";
+@import "./assets/stylesheets/bootstrap/helpers/focus-ring";
+// @import "./assets/stylesheets/bootstrap/helpers/clearfix";
+// @import "./assets/stylesheets/bootstrap/helpers/color-bg";
+// @import "./assets/stylesheets/bootstrap/helpers/colored-links";
+// @import "./assets/stylesheets/bootstrap/helpers/icon-link";
+// @import "./assets/stylesheets/bootstrap/helpers/position";
+// @import "./assets/stylesheets/bootstrap/helpers/stacks";
+// @import "./assets/stylesheets/bootstrap/helpers/text-truncation";
+// @import "./assets/stylesheets/bootstrap/helpers/vr";
+
+// Not rendered anywhere on this site:
+// @import "./assets/stylesheets/bootstrap/tables";
+// @import "./assets/stylesheets/bootstrap/button-group";
+// @import "./assets/stylesheets/bootstrap/accordion";
+// @import "./assets/stylesheets/bootstrap/breadcrumb";
+// @import "./assets/stylesheets/bootstrap/pagination";   // archive is grouped by year
+// @import "./assets/stylesheets/bootstrap/badge";
+// @import "./assets/stylesheets/bootstrap/alert";
+// @import "./assets/stylesheets/bootstrap/progress";
+// @import "./assets/stylesheets/bootstrap/list-group";
+// @import "./assets/stylesheets/bootstrap/close";
+// @import "./assets/stylesheets/bootstrap/toasts";
+// @import "./assets/stylesheets/bootstrap/modal";
+// @import "./assets/stylesheets/bootstrap/tooltip";
+// @import "./assets/stylesheets/bootstrap/popover";
+// @import "./assets/stylesheets/bootstrap/carousel";
+// @import "./assets/stylesheets/bootstrap/spinners";
+// @import "./assets/stylesheets/bootstrap/offcanvas";
+// @import "./assets/stylesheets/bootstrap/placeholders";
+
+// Generates the utility classes from the $utilities map. Must come last.
+@import "./assets/stylesheets/bootstrap/utilities/api";

@@ -35,4 +35,5 @@ $link-decoration: underline;
 $link-hover-decoration: underline;
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "./assets/stylesheets/_bootstrap.scss";
+// _bootstrap-custom.scss pulls in only the modules this site renders.
+@import "bootstrap-custom";

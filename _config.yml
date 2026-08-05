@@ -40,6 +40,10 @@ plugins:
 
 # The bootstrap gem's sass load path is resolved at build time by
 # _plugins/bootstrap_sass_load_path.rb rather than hardcoded here.
+sass:
+  # Jekyll's default is :expanded even under JEKYLL_ENV=production, so the
+  # stylesheet was being shipped with all its whitespace and comments.
+  style: compressed
 
 # Exclude from processing.
 # The following items will not be processed, by default.

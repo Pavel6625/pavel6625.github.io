@@ -59,15 +59,15 @@
 
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0 d-flex align-items-center">
             <button type="button" id="theme-toggle" class="theme-toggle" aria-label="{% t nav.theme %}" title="{% t nav.theme %}">
-              <span class="theme-toggle-light" aria-hidden="true"><i class="bi bi-moon-stars"></i></span>
-              <span class="theme-toggle-dark" aria-hidden="true"><i class="bi bi-sun"></i></span>
+              <span class="theme-toggle-light" aria-hidden="true">{% include icons/moon-stars.svg %}</span>
+              <span class="theme-toggle-dark" aria-hidden="true">{% include icons/sun.svg %}</span>
             </button>
           </li>
 
           <li class="nav-item dropdown ms-lg-2 mt-2 mt-lg-0">
             <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="languageMenuButton"
                     data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-translate" aria-hidden="true"></i> {% t language %}
+              {% include icons/translate.svg %} {% t language %}
             </button>
             <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="languageMenuButton">
               <li><a class="dropdown-item{% if site.lang == 'en' %} active{% endif %}" href="{{ site.baseurl_root }}{{ page.url }}" lang="en" hreflang="en">English (en)</a></li>

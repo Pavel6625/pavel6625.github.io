@@ -10,10 +10,11 @@
         {{ content }}
         {% include footer.html %}
         {% comment %}
-          Was pinned to 5.1.3 while the SCSS compiled against the 5.3.5 gem;
-          the two are now on the same version.
+          Bootstrap's JS bundle (80 KB, plus Popper) was loaded from a CDN for
+          exactly two things: the collapsing mobile menu and the language
+          dropdown. nav.js does both.
         {% endcomment %}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-        <script src="/assets/js/theme.js"></script>
+        <script src="/assets/js/nav.js" defer></script>
+        <script src="/assets/js/theme.js" defer></script>
     </body>
 </html>
