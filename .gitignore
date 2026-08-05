@@ -3,3 +3,8 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+
+# Image originals are kept outside the repo (see tools/build_images.py and
+# ../pavel6625.github.io-originals/). Only the generated derivatives ship.
+/assets/img/*
+!/assets/img/derived/

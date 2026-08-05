@@ -1,0 +1,41 @@
+{%- comment -%}
+  Responsive image from the generated manifest (_data/images.yml).
+
+  Params:
+    src      (required) original path, e.g. /assets/img/foo.jpg
+    alt      (required)
+    sizes    CSS sizes attribute; default 100vw. Set it — an accurate value is
+             the whole point, otherwise the browser over-fetches.
+    class, loading (default "lazy"), fetchpriority, width, height
+
+  Falls back to the original file when an image is not in the manifest, so a
+  newly dropped-in image still renders before build_images.py is re-run.
+{%- endcomment -%}
+{%- assign meta = site.data.images[include.src] -%}
+{%- assign img_loading = include.loading | default: "lazy" -%}
+{%- assign img_sizes = include.sizes | default: "100vw" -%}
+{%- if meta -%}
+  {%- assign base = '/assets/img/derived/' | prepend: site.baseurl -%}
+  {%- capture srcset -%}
+    {%- for w in meta.variants -%}
+      {{ base }}{{ meta.slug }}-{{ w }}.webp {{ w }}w{% unless forloop.last %}, {% endunless %}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- assign widest = meta.variants | last -%}
+<img src="{{ base }}{{ meta.slug }}-{{ widest }}.webp"
+     srcset="{{ srcset | strip }}"
+     sizes="{{ img_sizes }}"
+     width="{{ include.width | default: meta.width }}"
+     height="{{ include.height | default: meta.height }}"
+     alt="{{ include.alt | escape }}"
+     loading="{{ img_loading }}" decoding="async"
+     {%- if include.fetchpriority %} fetchpriority="{{ include.fetchpriority }}"{% endif %}
+     {%- if include.id %} id="{{ include.id }}"{% endif %}
+     {%- if include.class %} class="{{ include.class }}"{% endif %}>
+{%- else -%}
+<img src="{{ include.src | prepend: site.baseurl }}"
+     alt="{{ include.alt | escape }}"
+     loading="{{ img_loading }}" decoding="async"
+     {%- if include.id %} id="{{ include.id }}"{% endif %}
+     {%- if include.class %} class="{{ include.class }}"{% endif %}>
+{%- endif -%}
