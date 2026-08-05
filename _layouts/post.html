@@ -73,7 +73,7 @@ layout: default
           </div>
           {% endfor %}
         </div>
-        <p class="mt-3 mb-0">
+        <p class="mt-3 mb-0 text-end">
           <a href="{{ page.category | prepend: '/' | append: '/' | prepend: site.baseurl }}">{% t all_in %} {% include category-name.html category=page.category %}</a>
           &middot;
           <a href="{{ '/blog/' | prepend: site.baseurl }}">{% t back_to_blog %}</a>

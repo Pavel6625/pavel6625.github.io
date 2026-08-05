@@ -29,12 +29,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
-}
-
-// Running text sits at a comfortable measure rather than the full container.
-.article-body,
-.page-prose {
-  max-width: 42rem;
+  margin-bottom: 1rem;
 }
 
 .article-body p,
@@ -305,7 +300,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: .25rem;
+  margin-bottom: .5rem;
 }
 
 .archive-item {
@@ -341,7 +336,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .article-header {
-  max-width: 42rem;
   border-bottom: 1px solid var(--rule);
   padding-bottom: 1.25rem;
 }

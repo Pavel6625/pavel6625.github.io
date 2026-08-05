@@ -26,9 +26,9 @@ categories:
   poetry: "Poetry"
   project: "Projects"
 strands:
-  music_intro: "Recordings, scores, and notes on how the pieces came together."
-  poetry_intro: "Poems, in English and in Russian."
-  projects_intro: "Things I have built, and the writing that goes with them."
+  music_intro: "Tune in to the universal language of emotions."
+  poetry_intro: "Get a rhyme with my soul speaking."
+  projects_intro: "Explore the things I engage in."
   writing: "Writing"
 search:
   placeholder: "Search posts and pages…"

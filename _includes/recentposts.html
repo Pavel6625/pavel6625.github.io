@@ -1,6 +1,6 @@
 <section id="recent-posts" class="container">
   <h1>{% t titles.recent %}</h1>
-  <div class="row mb-2">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
     {% for post in site.posts limit:4 %}
     <div class="col-md-6">
       {%- comment -%}
