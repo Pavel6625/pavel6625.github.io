@@ -1,0 +1,30 @@
+---
+permalink: /search.json
+sitemap: false
+---
+{%- comment -%}
+  Prebuilt search index. Previously this data was inlined into the search page
+  itself (93 KB of JSON in the RU build, parsed by every visitor who opened
+  search). As a separate document it is fetched only on demand and cached.
+{%- endcomment -%}
+{%- assign first = true -%}
+[
+{%- for p in site.pages -%}
+  {%- if p.url contains '.json' or p.url contains '.xml' or p.url contains 'assets' -%}{%- continue -%}{%- endif -%}
+  {%- if site.lang == 'ru' -%}
+    {%- assign p_title = p.title_ru | default: p.title -%}
+  {%- else -%}
+    {%- assign p_title = p.title_en | default: p.title -%}
+  {%- endif -%}
+  {%- unless p_title -%}{%- continue -%}{%- endunless -%}
+  {%- unless first -%},{%- endunless -%}{%- assign first = false -%}
+  {%- assign p_body = p.content | markdownify | strip_html | normalize_whitespace | truncate: 2000 -%}
+  {"title":{{ p_title | jsonify }},"url":{{ p.url | prepend: site.baseurl | jsonify }},"category":null,"date":null,"body":{{ p_body | jsonify }}}
+{%- endfor -%}
+{%- for post in site.posts -%}
+  {%- unless first -%},{%- endunless -%}{%- assign first = false -%}
+  {%- capture cat -%}{% include category-name.html category=post.category %}{%- endcapture -%}
+  {%- assign post_body = post.content | markdownify | strip_html | normalize_whitespace -%}
+  {"title":{{ post.title | jsonify }},"url":{{ post.url | prepend: site.baseurl | jsonify }},"category":{{ cat | strip | jsonify }},"date":{{ post.date | date: "%Y-%m-%d" | jsonify }},"body":{{ post_body | jsonify }}}
+{%- endfor -%}
+]

@@ -1,0 +1,155 @@
+// Design tokens.
+//
+// Semantic names first, then Bootstrap's own custom properties mapped onto
+// them, so Bootstrap components (navbar, cards, dropdowns, forms) follow the
+// palette without being restyled one by one.
+//
+// Contrast against the ground each colour sits on, WCAG 2.1:
+//   light  ink 17.4:1   rust  8.1:1   muted 6.2:1   tan 1.96:1 (never text)
+//   dark   ink 15.0:1   ember 5.1:1   muted 6.2:1   tan 9.1:1
+//
+// Rust is reserved for action: links, buttons, the current nav item. Tan is
+// never allowed to carry text — it is rules, borders and the mark beside a
+// verse.
+
+:root,
+[data-bs-theme="light"] {
+  --paper:      #FFF8EC;
+  --paper-sunk: #F6EAD6;
+  --ink:        #1B1210;
+  --muted:      #6B5A50;
+  --accent:     #8F2700;
+  --accent-hi:  #6E1E00;
+  --tan:        #DBAC70;
+  --rule:       #E7D6BC;
+
+  --paper-rgb:  255, 248, 236;
+  --ink-rgb:    27, 18, 16;
+  --accent-rgb: 143, 39, 0;
+
+  --shadow-card: 0 1px 2px rgba(27, 18, 16, .06), 0 4px 12px rgba(27, 18, 16, .05);
+}
+
+[data-bs-theme="dark"] {
+  --paper:      #14100E;
+  --paper-sunk: #1E1815;
+  --ink:        #EFE3D4;
+  --muted:      #A2907F;
+  --accent:     #D9603A;
+  --accent-hi:  #E8845F;
+  --tan:        #DBAC70;
+  --rule:       #33291F;
+
+  --paper-rgb:  20, 16, 14;
+  --ink-rgb:    239, 227, 212;
+  --accent-rgb: 217, 96, 58;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, .5), 0 4px 12px rgba(0, 0, 0, .35);
+}
+
+// ---- Bootstrap mapping -------------------------------------------------
+// Applied to both themes at once; each reads whatever the tokens above
+// resolve to for the active mode.
+
+:root,
+[data-bs-theme="light"],
+[data-bs-theme="dark"] {
+  --bs-body-bg:      var(--paper);
+  --bs-body-bg-rgb:  var(--paper-rgb);
+  --bs-body-color:   var(--ink);
+  --bs-body-color-rgb: var(--ink-rgb);
+
+  --bs-emphasis-color: var(--ink);
+  --bs-secondary-color: var(--muted);
+  --bs-secondary-bg: var(--paper-sunk);
+  --bs-tertiary-bg:  var(--paper-sunk);
+
+  --bs-border-color: var(--rule);
+  --bs-border-color-translucent: var(--rule);
+
+  --bs-primary:      var(--accent);
+  --bs-primary-rgb:  var(--accent-rgb);
+  --bs-primary-text-emphasis: var(--accent);
+  --bs-primary-border-subtle: var(--rule);
+
+  --bs-link-color:       var(--accent);
+  --bs-link-color-rgb:   var(--accent-rgb);
+  --bs-link-hover-color: var(--accent-hi);
+
+  --bs-heading-color: var(--ink);
+  --bs-code-color:    var(--accent);
+
+  --bs-emphasis-color-rgb: var(--ink-rgb);
+}
+
+// Components whose colours Bootstrap bakes in at compile time, so they cannot
+// follow the tokens on their own.
+
+.btn-primary {
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent-hi);
+  --bs-btn-hover-border-color: var(--accent-hi);
+  --bs-btn-active-bg: var(--accent-hi);
+  --bs-btn-active-border-color: var(--accent-hi);
+  --bs-btn-disabled-bg: var(--accent);
+  --bs-btn-disabled-border-color: var(--accent);
+  --bs-btn-color: #FFF8EC;
+  --bs-btn-hover-color: #FFF8EC;
+  --bs-btn-active-color: #FFF8EC;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent);
+  --bs-btn-hover-border-color: var(--accent);
+  --bs-btn-active-bg: var(--accent);
+  --bs-btn-active-border-color: var(--accent);
+  --bs-btn-hover-color: #FFF8EC;
+  --bs-btn-active-color: #FFF8EC;
+  --bs-btn-disabled-color: var(--accent);
+  --bs-btn-disabled-border-color: var(--accent);
+}
+
+.card {
+  --bs-card-bg: var(--paper);
+  --bs-card-border-color: var(--rule);
+  --bs-card-cap-bg: var(--paper-sunk);
+}
+
+.dropdown-menu {
+  --bs-dropdown-bg: var(--paper);
+  --bs-dropdown-border-color: var(--rule);
+  --bs-dropdown-link-color: var(--ink);
+  --bs-dropdown-link-hover-bg: var(--paper-sunk);
+  --bs-dropdown-link-hover-color: var(--ink);
+  --bs-dropdown-link-active-bg: var(--accent);
+  --bs-dropdown-link-active-color: #FFF8EC;
+}
+
+.form-control {
+  --bs-body-bg: var(--paper);
+  border-color: var(--rule);
+  color: var(--ink);
+}
+
+.form-control:focus {
+  background-color: var(--paper);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 .2rem rgba(var(--accent-rgb), .2);
+}
+
+.img-thumbnail {
+  --bs-body-bg: var(--paper);
+  --bs-border-color: var(--rule);
+}
+
+.navbar {
+  --bs-navbar-color: var(--muted);
+  --bs-navbar-hover-color: var(--accent);
+  --bs-navbar-active-color: var(--accent);
+  --bs-navbar-brand-color: var(--ink);
+  --bs-navbar-brand-hover-color: var(--ink);
+  --bs-navbar-toggler-border-color: transparent;
+}

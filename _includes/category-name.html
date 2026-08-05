@@ -1,0 +1,11 @@
+{%- comment -%}
+  Localised display name for a post category.
+  The `t` tag needs a literal key, hence the case statement.
+  Usage: {% include category-name.html category=post.category %}
+{%- endcomment -%}
+{%- case include.category -%}
+{%- when 'music' -%}{% t categories.music %}
+{%- when 'poetry' -%}{% t categories.poetry %}
+{%- when 'project' -%}{% t categories.project %}
+{%- else -%}{{ include.category }}
+{%- endcase -%}

@@ -1,0 +1,34 @@
+{%- comment -%}
+  Localised date. Liquid's `date` filter and `date_to_long_string` only ever
+  emit English month names, so the Russian site was reading "17 Jul 2026".
+  Params: date (required), style: "long" (default) | "short"
+{%- endcomment -%}
+{%- assign d_style = include.style | default: "long" -%}
+{%- if site.lang == 'ru' -%}
+  {%- assign m = include.date | date: "%m" -%}
+  {%- case m -%}
+    {%- when '01' -%}{%- assign mn = 'января' -%}{%- assign ms = 'янв' -%}
+    {%- when '02' -%}{%- assign mn = 'февраля' -%}{%- assign ms = 'фев' -%}
+    {%- when '03' -%}{%- assign mn = 'марта' -%}{%- assign ms = 'мар' -%}
+    {%- when '04' -%}{%- assign mn = 'апреля' -%}{%- assign ms = 'апр' -%}
+    {%- when '05' -%}{%- assign mn = 'мая' -%}{%- assign ms = 'мая' -%}
+    {%- when '06' -%}{%- assign mn = 'июня' -%}{%- assign ms = 'июн' -%}
+    {%- when '07' -%}{%- assign mn = 'июля' -%}{%- assign ms = 'июл' -%}
+    {%- when '08' -%}{%- assign mn = 'августа' -%}{%- assign ms = 'авг' -%}
+    {%- when '09' -%}{%- assign mn = 'сентября' -%}{%- assign ms = 'сен' -%}
+    {%- when '10' -%}{%- assign mn = 'октября' -%}{%- assign ms = 'окт' -%}
+    {%- when '11' -%}{%- assign mn = 'ноября' -%}{%- assign ms = 'ноя' -%}
+    {%- else -%}{%- assign mn = 'декабря' -%}{%- assign ms = 'дек' -%}
+  {%- endcase -%}
+  {%- if d_style == 'short' -%}
+    {{ include.date | date: "%-d" }} {{ ms }}
+  {%- else -%}
+    {{ include.date | date: "%-d" }} {{ mn }} {{ include.date | date: "%Y" }}
+  {%- endif -%}
+{%- else -%}
+  {%- if d_style == 'short' -%}
+    {{ include.date | date: "%-d %b" }}
+  {%- else -%}
+    {{ include.date | date_to_long_string: "ordinal" }}
+  {%- endif -%}
+{%- endif -%}

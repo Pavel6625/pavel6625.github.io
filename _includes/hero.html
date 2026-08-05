@@ -1,7 +1,10 @@
-<section id="hero" class="container-fluid mb-4">
+<section id="hero" class="container-fluid mb-5">
   <div class="container">
-    <h1 class="display-5 fw-bold lh-1 mb-3 text-white">{% t titles.site %}</h1>
-    <p class="lead text-white">{% t titles.description %}</p>
-    <a role="button" href="{{ '/about' | prepend: site.baseurl | prepend: site.url }}" class="btn btn-primary btn-lg px-4 me-md-2">{% t nav.about %}</a>
+    <h1 class="hero-title fw-bold">{% t titles.site %}</h1>
+    <p class="hero-lead">{% t titles.description %}</p>
+    <div class="hero-actions">
+      <a role="button" href="{{ '/poetry/' | prepend: site.baseurl }}" class="btn btn-primary btn-lg px-4">{% t titles.poetry %}</a>
+      <a role="button" href="{{ '/about' | prepend: site.baseurl }}" class="btn btn-outline-light btn-lg px-4">{% t nav.about %}</a>
+    </div>
   </div>
 </section>

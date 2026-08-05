@@ -1,0 +1,30 @@
+{%- comment -%}
+  Post listing for the strand index pages. Shows a thumbnail, because these
+  pages are for browsing; the /blog/ archive is compact by contrast.
+  Params: category (required)
+{%- endcomment -%}
+{% assign listed = site.posts | where: "category", include.category %}
+
+<div class="strand-list">
+  {% for post in listed %}
+  <article class="row py-4 border-top align-items-center g-3">
+    <div class="col-md-9 order-2 order-md-1">
+      <h3 class="h4 mb-1">
+        <a class="text-decoration-none" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h3>
+      <p class="text-muted small mb-2">{% include post-date.html date=post.date %}</p>
+      {% if post.description %}<p class="mb-0">{{ post.description }}</p>{% endif %}
+    </div>
+    <div class="col-md-3 order-1 order-md-2">
+      {% if post.image %}
+      <a href="{{ post.url | prepend: site.baseurl }}" tabindex="-1" aria-hidden="true">
+        {% assign thumb_alt = post.image_alt | default: post.title %}
+        {% include img.html src=post.image alt=thumb_alt
+                            class="img-thumbnail post-thumb"
+                            sizes="(min-width: 768px) 300px, 100vw" %}
+      </a>
+      {% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</div>

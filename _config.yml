@@ -27,20 +27,19 @@ url: "https://pavelshlepnev.space" # the base hostname & protocol for your site,
 languages: ["en", "ru"]
 exclude_from_localizations: ["javascript", "images", "css"]
 
-# Pagination Settings
-paginate: 5 # change this into your desired number, paginate 2 means: there will only be 2 titles of your blogpost in one page
-paginate_path: "/blog/page:num/"
+# The /blog/ archive is grouped by year rather than paginated, so jekyll-paginate
+# is no longer enabled. The old /blog/page2..4/ URLs are kept alive by redirect
+# stubs in blog/.
 
 # Build settings
 plugins:
   - jekyll-feed
   - jekyll-multiple-languages-plugin
   - jekyll-coffeescript
-  - jekyll-paginate
   - jekyll-seo-tag
 
-sass:
-  load_paths: ["C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/bootstrap-5.3.5", "./vendor/bundle/ruby/3.3.0/gems/bootstrap-5.3.5"]
+# The bootstrap gem's sass load path is resolved at build time by
+# _plugins/bootstrap_sass_load_path.rb rather than hardcoded here.
 
 # Exclude from processing.
 # The following items will not be processed, by default.

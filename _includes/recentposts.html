@@ -3,16 +3,33 @@
   <div class="row mb-2">
     {% for post in site.posts limit:4 %}
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      {%- comment -%}
+        No fixed height: at the new heading sizes a long title plus a
+        description overflowed the old 250px box and was clipped mid-sentence.
+      {%- endcomment -%}
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-100 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">{{ post.category }}</strong>
+          {%- comment -%}
+            Plain text, not a link: the card below uses .stretched-link, whose
+            overlay would sit on top of any anchor in here.
+          {%- endcomment -%}
+          <strong class="d-inline-block mb-2 text-primary">{% include category-name.html category=post.category %}</strong>
           <h3 class="mb-0">{{ post.title }}</h3>
-          <div class="mb-1 text-muted">{{ post.date | date_to_long_string: "ordinal" }}</div>
+          <div class="mb-1 text-muted">{% include post-date.html date=post.date %}</div>
           <p class="card-text mb-auto">{{ post.description }}</p>
-          <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" class="stretched-link">{% t continue %}</a>
+          <a href="{{ post.url | prepend: site.baseurl }}" class="stretched-link">{% t continue %}</a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <img style="object-fit: cover; object-position: center;" width="200" height="250" src="{{ post.image }}">
+          {%- comment -%}
+            `contain`, not `cover`: these images are a mix of photographs and
+            wide project logos, and cover turned the logos into unreadable
+            zoomed fragments.
+          {%- endcomment -%}
+          {% assign recent_alt = post.image_alt | default: post.title %}
+          {% include img.html src=post.image alt=recent_alt
+                              class="recent-thumb"
+                              width=200 height=250
+                              sizes="200px" %}
         </div>
       </div>
     </div>
@@ -20,6 +37,6 @@
   </div>
 
   <div class="d-grid mt-4 mb-4">
-    <a role="button" class="btn btn-primary" href="{{ '/blog' | prepend: site.baseurl | prepend: site.url }}">{% t more %}</a>
+    <a role="button" class="btn btn-primary" href="{{ '/blog' | prepend: site.baseurl }}">{% t more %}</a>
   </div>
 </section>

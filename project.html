@@ -1,0 +1,15 @@
+---
+layout: page
+title_en: Projects
+title_ru: Проекты
+title: Projects
+permalink: /project/
+---
+
+<p class="lead">{% t strands.projects_intro %}</p>
+
+{% translate_file projects/projects.html %}
+
+<h2 class="h3 mt-5">{% t strands.writing %}</h2>
+
+{% include post-list.html category="project" %}

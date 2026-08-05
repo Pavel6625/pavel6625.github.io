@@ -1,24 +1,82 @@
-<header class="container lh-1 py-3">
-  <div class="d-flex flex-wrap justify-content-between align-items-center flex-column flex-md-row">
-    <div class="flex-grow-0 pt-1 d-none d-md-inline-block col-md-3">
-      <a class="btn btn-outline-primary" href="{{ '/about' | prepend: site.baseurl | prepend: site.url }}">{% t nav.about %}</a>
-    </div>
-    <div class="flex-grow-1 text-center col-md-6 mb-3 mb-md-0">
-      <a class="blog-header-logo text-dark" href="{{ '/' | prepend: site.baseurl | prepend: site.url }}">{% t titles.site %}</a>
-    </div>
-    <div class="flex-grow-0 d-flex justify-content-end align-items-center col-md-3">
-      <a class="link-primary d-none d-md-inline-block" href="{{ '/search' | prepend: site.baseurl | prepend: site.url }}" aria-label="Search">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
-      </a>
-      <div class="dropdown">
-        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-translate"></i> {% t language %}
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="{{ site.baseurl_root }}{{ page.url }}">English (en)</a></li>
-          <li><a class="dropdown-item" href="{{ site.baseurl_root }}/ru{{ page.url }}">Русский (ru)</a></li>
+{% assign home_url = '/' | prepend: site.baseurl %}
+{% assign music_url = '/music/' | prepend: site.baseurl %}
+{% assign poetry_url = '/poetry/' | prepend: site.baseurl %}
+{% assign projects_url = '/project/' | prepend: site.baseurl %}
+{% assign blog_url = '/blog' | prepend: site.baseurl %}
+{% assign about_url = '/about' | prepend: site.baseurl %}
+{% assign search_url = '/search' | prepend: site.baseurl %}
+
+<header class="container py-3">
+  <nav class="navbar navbar-expand-lg p-0" aria-label="{% t nav.primary %}">
+    <div class="container-fluid p-0">
+
+      <a class="navbar-brand blog-header-logo text-dark m-0 p-0" href="{{ home_url }}">{% t titles.site %}</a>
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+              data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false"
+              aria-label="{% t nav.menu %}">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="site-nav">
+        <ul class="navbar-nav ms-lg-auto align-items-lg-center mt-3 mt-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link{% if page.url == '/music/' %} active{% endif %}" href="{{ music_url }}"
+               {% if page.url == '/music/' %}aria-current="page"{% endif %}>{% t nav.music %}</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link{% if page.url == '/poetry/' %} active{% endif %}" href="{{ poetry_url }}"
+               {% if page.url == '/poetry/' %}aria-current="page"{% endif %}>{% t nav.poetry %}</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link{% if page.url == '/project/' %} active{% endif %}" href="{{ projects_url }}"
+               {% if page.url == '/project/' %}aria-current="page"{% endif %}>{% t nav.projects %}</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link{% if page.url == '/blog/' %} active{% endif %}" href="{{ blog_url }}"
+               {% if page.url == '/blog/' %}aria-current="page"{% endif %}>{% t nav.blog %}</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link{% if page.url == '/about/' %} active{% endif %}" href="{{ about_url }}"
+               {% if page.url == '/about/' %}aria-current="page"{% endif %}>{% t nav.about %}</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2{% if page.url == '/search/' %} active{% endif %}" href="{{ search_url }}"
+               {% if page.url == '/search/' %}aria-current="page"{% endif %}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor"
+                   stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/>
+              </svg>
+              {% t nav.search %}
+            </a>
+          </li>
+
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0 d-flex align-items-center">
+            <button type="button" id="theme-toggle" class="theme-toggle" aria-label="{% t nav.theme %}" title="{% t nav.theme %}">
+              <span class="theme-toggle-light" aria-hidden="true"><i class="bi bi-moon-stars"></i></span>
+              <span class="theme-toggle-dark" aria-hidden="true"><i class="bi bi-sun"></i></span>
+            </button>
+          </li>
+
+          <li class="nav-item dropdown ms-lg-2 mt-2 mt-lg-0">
+            <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="languageMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-translate" aria-hidden="true"></i> {% t language %}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="languageMenuButton">
+              <li><a class="dropdown-item{% if site.lang == 'en' %} active{% endif %}" href="{{ site.baseurl_root }}{{ page.url }}" lang="en" hreflang="en">English (en)</a></li>
+              <li><a class="dropdown-item{% if site.lang == 'ru' %} active{% endif %}" href="{{ site.baseurl_root }}/ru{{ page.url }}" lang="ru" hreflang="ru">Русский (ru)</a></li>
+            </ul>
+          </li>
+
         </ul>
       </div>
     </div>
-  </div>
+  </nav>
 </header>

@@ -1,0 +1,7 @@
+{%- comment -%}
+  Category name linked to its index page. Usage:
+  {% include category-link.html category=post.category %}
+{%- endcomment -%}
+{%- if include.category -%}
+<a class="text-decoration-none text-primary" href="{{ include.category | prepend: '/' | append: '/' | prepend: site.baseurl }}">{% include category-name.html category=include.category %}</a>
+{%- endif -%}

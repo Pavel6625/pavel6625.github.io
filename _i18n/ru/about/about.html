@@ -1,55 +1,31 @@
 <div class="row mb-2">
   <div class="col-12 col-md-3 order-md-2">
-    <img id="me" src="/assets/img/IMG_9893.jpg" class="h-md-250">
-  </div>  
+    {% include img.html src="/assets/img/IMG_9893.jpg" alt="Павел Шлепнёв"
+                        class="h-md-250" id="me" loading="eager"
+                        sizes="(min-width: 768px) 320px, 100vw" %}
+  </div>
   <div class="col-12 col-md-9">
     <p>Привет и добро пожаловать в моё пространство на просторах Интернета! Я нейробиолог, музыкант, актёр и программист, который пытается соединить свои навыки и увлечения в то, что могло бы Вам понравиться. Сейчас работаю над своей диссертацией о связи музыкальности и языковых навыков и играю в одной театральной студии.</p>
-    <p>Цель этого ресурса — собрать воедино все мои творческие проекты, чтобы я мог легко ими поделиться, а вы смогли лучше узнать меня, ведь каждый человек — это огромный мир, полный новых открытий. Надеюсь, вам понравится открывать меня!</p>    
+    <p>Цель этого ресурса — собрать воедино все мои творческие проекты, чтобы я мог легко ими поделиться, а вы смогли лучше узнать меня, ведь каждый человек — это огромный мир, полный новых открытий. Надеюсь, вам понравится открывать меня!</p>
   </div>
 </div>
-<h3>Вот проекты, созданные мной</h3>
-<div class="row row-cols-1 row-cols-md-2 g-4 mb-3">
-    <div class="col">
-        <div class="card h-100">
-            <img src="/assets/img/Artcascade_bg_white.png" class="card-img-top" alt="Artcascade">
-            <div class="card-body">
-                <h5 class="card-title"><a href="https://artcascade.site">Арткаскад</a></h5>
-                <p class="card-text">Платформа для живого коллективного творчества</p>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="/assets/img/dom_poetov_logo.jpg" class="card-img-top" alt="Дом поэтов">
-        <div class="card-body">
-          <h5 class="card-title"><a href="https://dompoetov.com">Дом поэтов</a></h5>
-          <p class="card-text">Пространство для творческих событий в Москве</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="/assets/img/Quintesscence_2.1.png" class="card-img-top" alt="Quintessence">
-        <div class="card-body">
-          <h5 class="card-title"><a href="https://quintessence.pw">Quintessence</a></h5>
-          <p class="card-text">Платформа для мастеров уникальных изделий ручной работы</p>
-        </div>
-      </div>
-    </div>
-</div>
+
+<p class="lead">
+  Всё, что я делаю, собрано по разделам:
+  <a href="{{ '/music/' | prepend: site.baseurl }}">музыка</a>,
+  <a href="{{ '/poetry/' | prepend: site.baseurl }}">стихи</a> и
+  <a href="{{ '/project/' | prepend: site.baseurl }}">проекты</a>.
+</p>
 
 <h3>Я открыт для общения, можете написать мне в любой соцсети:</h3>
 <ul class="list-inline">
   <li class="list-inline-item"><a href="mailto:{{ site.email }}" class="btn btn-outline-primary btn-lg"><i class="bi bi-envelope"></i> Электронная почта</a></li>
-  <li class="list-inline-item"><a href="https://vk.com/public93689497" class="btn btn-outline-primary btn-lg"><i class="fab fa-vk"></i> ВКонтакте</a></li>
+  <li class="list-inline-item"><a href="https://vk.com/public93689497" class="btn btn-outline-primary btn-lg">{% include icon-vk.html %} ВКонтакте</a></li>
   <li class="list-inline-item"><a href="https://twitter.com/pavel_shlepnev" class="btn btn-outline-primary btn-lg"><i class="bi bi-twitter"></i> Твиттер</a></li>
   <li class="list-inline-item"><a href="https://www.facebook.com/pavelshlepnevarts" class="btn btn-outline-primary btn-lg"><i class="bi bi-facebook"></i> Фейсбук</a></li>
   <li class="list-inline-item"><a href="https://www.instagram.com/pavelshlepnev/" class="btn btn-outline-primary btn-lg"><i class="bi bi-instagram"></i> Инстаграм</a></li>
   <li class="list-inline-item"><a href="https://t.me/pavelshlepnevarts" class="btn btn-outline-primary btn-lg"><i class="bi bi-telegram"></i> Телеграм</a></li>
-  <li class="list-inline-item"><iframe scrolling="no" style="border: 0;width: 100%;height: 33px;" src="https://bandcamp.com/band_follow_button_classic/277557307"></iframe></li>
+  <li class="list-inline-item"><iframe title="Bandcamp" loading="lazy" scrolling="no" style="border: 0;width: 100%;height: 33px;" src="https://bandcamp.com/band_follow_button_classic/277557307"></iframe></li>
 </ul>
 
-<h3>Поддержите меня, если вам нравится моё творчество!</h3>
-<p>Можно поддержать меня криптовалютой</p>
-<p><strong>USDT (TRC20):</strong> <samp>TKmGUvAh9k4dCQAQU9FLCYr3Tk35UDms1k</samp></p>
-<p><strong>Bitcoin:</strong> <samp>18kBPCAZLLEV72GY5udsGwgZDfsD1Px8nq</samp></p>
+<p>Если хотите поддержать то, что я делаю, — способы собраны на <a href="{{ '/support/' | prepend: site.baseurl }}">странице поддержки</a>.</p>

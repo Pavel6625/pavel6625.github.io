@@ -1,0 +1,29 @@
+{%- comment -%}
+  The three things Pavel makes, offered as three doors rather than one queue.
+  Counts come from the posts that actually exist in the current language, and
+  are rendered as bare numerals to sidestep Russian plural agreement.
+{%- endcomment -%}
+{% assign music_posts = site.posts | where: "category", "music" %}
+{% assign poetry_posts = site.posts | where: "category", "poetry" %}
+{% assign project_posts = site.posts | where: "category", "project" %}
+
+<section id="strands" class="container mb-5">
+  <div class="strands">
+
+    <a class="strand-card" href="{{ '/music/' | prepend: site.baseurl }}">
+      <h3>{% t titles.music %} <span class="strand-count">{{ music_posts | size }}</span></h3>
+      <p>{% t strands.music_intro %}</p>
+    </a>
+
+    <a class="strand-card" href="{{ '/poetry/' | prepend: site.baseurl }}">
+      <h3>{% t titles.poetry %} <span class="strand-count">{{ poetry_posts | size }}</span></h3>
+      <p>{% t strands.poetry_intro %}</p>
+    </a>
+
+    <a class="strand-card" href="{{ '/project/' | prepend: site.baseurl }}">
+      <h3>{% t titles.projects %} <span class="strand-count">{{ project_posts | size }}</span></h3>
+      <p>{% t strands.projects_intro %}</p>
+    </a>
+
+  </div>
+</section>

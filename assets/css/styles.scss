@@ -1,53 +1,222 @@
 ---
 ---
+@import "fonts";
 @import "main.scss";
+@import "tokens";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
-@import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
 
 /* stylelint-disable selector-list-comma-newline-after */
 
-body {
-  min-height: 100vh; 
-  margin: 0; 
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+:root {
+  // The UI face: navigation, buttons, dates, category labels. Keeping the
+  // chrome in a sans leaves the serifs for the words Pavel actually wrote.
+  --font-ui: #{$font-family-sans-serif};
+  --font-display: #{$headings-font-family};
 }
 
-.blog-header {
-  border-bottom: 1px solid #e5e5e5;
+svg.bi {
+  fill: currentColor;
 }
-  
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+// Running text sits at a comfortable measure rather than the full container.
+.article-body,
+.page-prose {
+  max-width: 42rem;
+}
+
+.article-body p,
+.page-prose p {
+  margin-bottom: 1.15rem;
+}
+
+/*
+  * Site header
+  */
+.blog-header {
+  background-color: var(--paper-sunk) !important;
+  border-bottom: 1px solid var(--rule);
+}
+
 .blog-header-logo {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
-  font-size: 2.25rem;
+  font-family: var(--font-display);
+  // Small phones first: at 1.9rem the Russian wordmark ("Павел Шлепнёв")
+  // crowded the menu button off a 390px screen.
+  font-size: 1.35rem;
+  line-height: 1.1;
+  color: var(--ink) !important;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 576px) {
+  .blog-header-logo {
+    font-size: 1.9rem;
+  }
 }
 
 .blog-header-logo:hover {
   text-decoration: none;
+  color: var(--accent) !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+.navbar-nav .nav-link {
+  font-family: var(--font-ui);
+  font-size: .95rem;
+  letter-spacing: .01em;
 }
 
+.navbar-nav .nav-link.active {
+  font-weight: 600;
+}
+
+// Bootstrap draws the toggler icon as an inline SVG data URI in a fixed
+// colour, so it needs restating per theme.
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%238F2700' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+[data-bs-theme="dark"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23D9603A' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.theme-toggle {
+  font-family: var(--font-ui);
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--muted);
+  border-radius: .375rem;
+  padding: .25rem .5rem;
+  line-height: 1;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.theme-toggle .theme-toggle-dark { display: none; }
+[data-bs-theme="dark"] .theme-toggle .theme-toggle-dark { display: inline; }
+[data-bs-theme="dark"] .theme-toggle .theme-toggle-light { display: none; }
+
+/*
+  * Hero
+  */
 #hero {
-  height: 82vh;
-  background-image: url("/assets/img/Игры в бисер 05.jpg");
+  height: 55vh;
+  min-height: 22rem;
+  // Was the 2000px original (1.6 MB) on every visit, at every screen size.
+  background-image: linear-gradient(to right, rgba(0, 0, 0, .75), rgba(0, 0, 0, .25)),
+                    url("/assets/img/derived/igry-v-biser-05-fc8d3158-960.webp");
   background-origin: border-box;
   background-size: cover;
-  background-position: 75%;
+  background-position: 70%;
+  display: flex;
+  align-items: center;
 }
 
-#hero > div {
-  padding-top: 4rem;
-  padding-left: 2rem;
-  text-shadow: black 1px 0 10px;
-}  
-
-.display-4 {
-  font-size: 2.5rem;
+#hero .hero-title {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  color: #fff;
+  margin-bottom: .5rem;
+  // The photograph has bright patches behind the type; the gradient alone was
+  // not enough to keep the name crisp.
+  text-shadow: 0 2px 18px rgba(0, 0, 0, .85), 0 1px 3px rgba(0, 0, 0, .7);
 }
 
+#hero .hero-lead {
+  color: #fff;
+  font-size: 1.15rem;
+  max-width: 34rem;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, .85), 0 1px 3px rgba(0, 0, 0, .7);
+}
+
+#hero .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  #hero {
+    height: 58vh;
+    background-position: 50%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, .75), rgba(0, 0, 0, .25)),
+                      url("/assets/img/derived/igry-v-biser-05-fc8d3158-1600.webp");
+  }
+}
+
+/*
+  * Strand cards
+  */
+.strands {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.strand-card {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding: 1.25rem;
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--tan);
+  border-radius: .5rem;
+  background: var(--paper);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .15s ease, transform .15s ease;
+}
+
+.strand-card:hover {
+  border-color: var(--accent);
+  border-top-color: var(--accent);
+  transform: translateY(-2px);
+  color: inherit;
+}
+
+.strand-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.strand-card .strand-count {
+  font-family: var(--font-ui);
+  font-size: .8rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  vertical-align: .35em;
+}
+
+.strand-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strand-card { transition: none; }
+  .strand-card:hover { transform: none; }
+}
+
+/*
+  * Post lists
+  */
 .card-img-top {
   height: 250px;
   object-fit: contain;
@@ -61,6 +230,24 @@ h1, h2, h3, h4, h5, h6 {
   object-position: center;
 }
 
+// Archive thumbnails: a fixed ratio reserves the space before the image
+// arrives, so the list does not jump as it loads.
+.post-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+}
+
+.recent-thumb {
+  width: 200px;
+  height: 250px;
+  object-fit: contain;
+  object-position: center;
+  background: var(--paper-sunk);
+  padding: .5rem;
+}
+
 .list-inline-item {
   margin-bottom: 0.5rem;
 }
@@ -69,29 +256,6 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-@media (min-width: 768px) {
-  .display-4 {
-    font-size: 3rem;
-  }
-
-  #hero {
-    height: 90vh;
-    background-position: 50%;
-  }
-
-  #hero > div {
-    padding-top: 15rem;
-    padding-left: 10rem;
-  }  
-}
-
-@media (max-height: 500px) {
-  #hero > div {
-    padding-top: 5rem;
-    padding-left: 5rem;
-  }  
 }
 
 .flex-auto {
@@ -103,23 +267,119 @@ h1, h2, h3, h4, h5, h6 {
   .h-md-250 { height: 250px !important; }
 }
 
-/* Pagination */
-.blog-pagination {
-  margin-bottom: 4rem;
+/*
+  * Archive and strand indexes
+  */
+.archive-year {
+  margin-bottom: 2.5rem;
+}
+
+.archive-year-heading {
+  font-family: var(--font-ui);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .25rem;
+}
+
+.archive-item {
+  border-color: var(--rule) !important;
+}
+
+.archive-item:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.strand-list article {
+  border-color: var(--rule) !important;
+}
+
+.strand-list article:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.strand-list .post-thumb {
+  max-height: 160px;
 }
 
 /*
-  * Blog posts
+  * Posts
   */
-.blog-post {
-  margin-bottom: 4rem;
-}
 .blog-post-title {
   font-size: 2.5rem;
 }
+
 .blog-post-meta {
   margin-bottom: 1.25rem;
-  color: #727272;
+  color: var(--muted);
+}
+
+.article-header {
+  max-width: 42rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.25rem;
+}
+
+.article-header .article-eyebrow {
+  font-family: var(--font-ui);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.article-header h2 {
+  font-size: clamp(1.9rem, 4.5vw, 2.75rem);
+  margin: .4rem 0 .5rem;
+}
+
+.article-header .lead {
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.article-header .article-date {
+  font-family: var(--font-ui);
+  font-size: .85rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+// Replaces the inline max-height that used to sit on this image; without it a
+// square or portrait lead photo ran the full width of the measure and pushed
+// the opening lines off the screen.
+.article-lead-image {
+  max-height: 600px;
+  width: auto;
+  max-width: 100%;
+}
+
+/*
+  * Verse
+  *
+  * A stanza is a paragraph containing line breaks; prose in the same post has
+  * none. :has() lets the distinction come from the writing itself, so Pavel
+  * does not have to mark up poems by hand. Browsers without :has() simply get
+  * ordinary paragraphs.
+  */
+.article-verse h2,
+.post-title-verse {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.article-body p:has(br) {
+  border-left: 2px solid var(--tan);
+  padding-left: 1.15rem;
+  margin-bottom: 1.35rem;
+  line-height: 1.9;
+  hanging-punctuation: first;
+}
+
+.article-verse .article-body p:has(br) {
+  font-size: 1.08rem;
 }
 
 /*
@@ -127,13 +387,24 @@ h1, h2, h3, h4, h5, h6 {
   */
 .blog-footer {
   padding: 2rem 0 2.5rem;
-  color: #727272;
+  color: var(--muted);
   text-align: center;
-  background-color: $light;
-  border-top: .05rem solid #e5e5e5;
+  background-color: var(--paper-sunk);
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-ui);
+  font-size: .9rem;
 }
+
 .blog-footer p:last-child {
   margin-bottom: 0;
+}
+
+.blog-footer a {
+  color: var(--muted);
+}
+
+.blog-footer a:hover {
+  color: var(--accent);
 }
 
 #me {
@@ -141,4 +412,11 @@ h1, h2, h3, h4, h5, h6 {
   height: 450px;
   object-fit: cover;
   object-position: 10% 25%;
+}
+
+/*
+  * Search
+  */
+#search-results .search-hit-meta {
+  font-family: var(--font-ui);
 }

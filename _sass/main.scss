@@ -1,3 +1,5 @@
+// Compile-time Bootstrap variables. These set the light-mode defaults and the
+// type stack; per-theme colour lives in _tokens.scss as custom properties.
 
 $primary: #8F2700;
 $secondary: #DBAC70;
@@ -9,6 +11,28 @@ $theme-colors: (
   "light": $light
 );
 
+// ---- Typography --------------------------------------------------------
+// Literata for reading, Playfair Display for display sizes. Both are
+// self-hosted with Latin and Cyrillic subsets (see _fonts.scss), so the
+// Russian half of the site is no longer at the mercy of a system fallback.
+
+$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-serif: "Literata", Georgia, "Times New Roman", serif;
+$font-family-base: $font-family-serif;
+$headings-font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+
+$font-size-base: 1.0625rem;
+$line-height-base: 1.65;
+$headings-font-weight: 700;
+$headings-line-height: 1.2;
+
+$body-bg: #FFF8EC;
+$body-color: #1B1210;
+$border-color: #E7D6BC;
+
+$link-color: $primary;
+$link-decoration: underline;
+$link-hover-decoration: underline;
+
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "./assets/stylesheets/_bootstrap.scss";
-@import url(https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css);

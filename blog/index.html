@@ -3,36 +3,28 @@ title_en: Blog
 title_ru: Блог
 title: Blog
 layout: page
+permalink: /blog/
 ---
 
-<!-- post list -->
-{% for post in paginator.posts %}
-<div class="row mb-2 d-flex align-items-md-center">
-  <div class="col-md-9 order-2 order-md-1">
-    <article class="blog-post">
-      <span class="small text-secondary">{{ post.category }}</span>
-      <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="blog-post-title mb-1">{{ post.title }}</h3></a>
-      <p class="blog-post-meta">{{ post.date | date_to_long_string: "ordinal" }}</p>
-      {{ post.excerpt }}
-    </article>    
-  </div>
-  <div class="col-md-3 order-1 order-md-2"><img class="img-thumbnail" src="{{ post.image | prepend: site.baseurl }}"></div>
-</div>
-{% endfor %}
+{% assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 
-<!-- pagination -->
-{% if paginator.total_pages > 1 %}
-<nav aria-label="Blog pages" class="mt-3">
-  <ul class="pagination justify-content-center">
-      <li class="page-item{% unless paginator.previous_page %} disabled{% endunless %}">
-          <a class="page-link" href="{% if paginator.previous_page %}{{ paginator.previous_page_path | prepend: site.baseurl }}{% else %}#{% endif %}"><i class="bi bi-arrow-left"></i></a>
-      </li>
-      {% for page in (1..paginator.total_pages) %}
-      <li class="page-item{% if page == paginator.page %} active{% endif %}"><a class="page-link" href="{% if page == 1 %}{{ site.paginate_path | prepend: site.baseurl | replace: 'page:num/', '' }}{% else %}{{ site.paginate_path | prepend: site.baseurl | replace: ':num', page }}{% endif %}">{{ page }}</a></li>
-      {% endfor %}
-      <li class="page-item{% unless paginator.next_page %} disabled{% endunless %}">
-          <a class="page-link" href="{% if paginator.next_page %}{{ paginator.next_page_path | prepend: site.baseurl }}{% else %}#{% endif %}"><i class="bi bi-arrow-right"></i></a>
-      </li>
-  </ul>
-</nav>
-{% endif %}
+{% for year in years %}
+<section class="archive-year">
+  <h2 class="archive-year-heading">{{ year.name }}</h2>
+
+  {% for post in year.items %}
+  <article class="archive-item row py-3 border-top g-2 align-items-baseline">
+    <div class="col-12 col-md-3 col-lg-2">
+      <span class="text-muted small d-block">{% include post-date.html date=post.date style="short" %}</span>
+      <span class="small">{% include category-link.html category=post.category %}</span>
+    </div>
+    <div class="col-12 col-md-9 col-lg-10">
+      <h3 class="h5 mb-1">
+        <a class="text-decoration-none" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h3>
+      {% if post.description %}<p class="mb-0 text-muted">{{ post.description }}</p>{% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</section>
+{% endfor %}
