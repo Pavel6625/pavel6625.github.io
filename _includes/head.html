@@ -40,6 +40,9 @@
 {% endcomment %}
 <script>
   (function () {
+    {% if page.layout == "home" %}
+    document.documentElement.setAttribute("data-bs-theme", "dark");
+    {% else %}
     try {
       var stored = localStorage.getItem("theme");
       var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -47,6 +50,7 @@
     } catch (e) {
       document.documentElement.setAttribute("data-bs-theme", "light");
     }
+    {% endif %}
   })();
 </script>
 

@@ -4,8 +4,9 @@
         {% include head.html %}
     </head>
     <body>
-        <div class="blog-header">
-            {% include header.html %}
+        <div class="home">
+        <div>
+            {% include header_home.html %}
         </div>
         {{ content }}
         {% include footer.html %}
@@ -14,6 +15,7 @@
           exactly two things: the collapsing mobile menu and the language
           dropdown. nav.js does both.
         {% endcomment %}
+        </div>
         <script src="/assets/js/nav.js" defer></script>
         <script src="/assets/js/theme.js" defer></script>
     </body>

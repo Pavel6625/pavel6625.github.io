@@ -1,0 +1,42 @@
+{% assign home_url = '/' | prepend: site.baseurl %}
+{% assign music_url = '/music/' | prepend: site.baseurl %}
+{% assign poetry_url = '/poetry/' | prepend: site.baseurl %}
+{% assign projects_url = '/project/' | prepend: site.baseurl %}
+{% assign blog_url = '/blog' | prepend: site.baseurl %}
+{% assign about_url = '/about' | prepend: site.baseurl %}
+{% assign search_url = '/search' | prepend: site.baseurl %}
+
+<header class="container py-3">
+  <nav class="navbar navbar-expand-lg p-0 float-end" aria-label="{% t nav.primary %}">
+    <div class="container-fluid p-0">
+    
+      <div id="site-nav">
+        <ul class="navbar-nav ms-lg-auto align-items-lg-center mt-3 mt-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2{% if page.url == '/search/' %} active{% endif %}" href="{{ search_url }}"
+               {% if page.url == '/search/' %}aria-current="page"{% endif %}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor"
+                   stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/>
+              </svg>
+              {% t nav.search %}
+            </a>
+          </li>
+
+          <li class="nav-item dropdown ms-lg-2 mt-2 mt-lg-0">
+            <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="languageMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+              {% include icons/translate.svg %} {% t language %}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="languageMenuButton">
+              <li><a class="dropdown-item{% if site.lang == 'en' %} active{% endif %}" href="{{ site.baseurl_root }}{{ page.url }}" lang="en" hreflang="en">English (en)</a></li>
+              <li><a class="dropdown-item{% if site.lang == 'ru' %} active{% endif %}" href="{{ site.baseurl_root }}/ru{{ page.url }}" lang="ru" hreflang="ru">Русский (ru)</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

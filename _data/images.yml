@@ -2,6 +2,11 @@
 # Maps each original in assets/img to its WebP derivatives and to its
 # intrinsic size, so templates can set width/height and avoid reflow.
 
+"/assets/img/1_21.jpg":
+  slug: "1-21-2f9e08d1"
+  width: 1431
+  height: 2160
+  variants: [480, 960]
 "/assets/img/20140715_204305.jpg":
   slug: "20140715-204305-54bb03ed"
   width: 3264

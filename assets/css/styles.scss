@@ -27,6 +27,19 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.home {
+  // The hero is a full-width image, so the body background is visible behind
+  // it. The default is white, but the hero is dark, so a dark background
+  // prevents a flash of white on load.
+  background-color: var(--paper-sunk);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, .75), rgba(0, 0, 0, .25)),
+                    url("/assets/img/derived/1-21-2f9e08d1-960.webp");
+  background-size: cover;
+  background-position-y: 45%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
   margin-bottom: 1rem;
@@ -41,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
   * Site header
   */
 .blog-header {
-  background-color: var(--paper-sunk) !important;
+  background-color: var(--paper);
   border-bottom: 1px solid var(--rule);
 }
 
@@ -121,14 +134,9 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   height: 55vh;
   min-height: 22rem;
-  // Was the 2000px original (1.6 MB) on every visit, at every screen size.
-  background-image: linear-gradient(to right, rgba(0, 0, 0, .75), rgba(0, 0, 0, .25)),
-                    url("/assets/img/derived/igry-v-biser-05-fc8d3158-960.webp");
   background-origin: border-box;
-  background-size: cover;
-  background-position: 70%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 #hero .hero-title {
@@ -171,9 +179,15 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 768px) {
   #hero {
     height: 58vh;
-    background-position: 50%;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, .75), rgba(0, 0, 0, .25)),
-                      url("/assets/img/derived/igry-v-biser-05-fc8d3158-1600.webp");
+  }
+}
+
+@media (max-width: 767.98px) {
+  .home {
+    // Narrow viewports crop the (portrait) photo mostly top/bottom, so the
+    // face needs a much higher anchor here than on desktop, where the crop
+    // is mostly left/right.
+    background-position-y: 22%;
   }
 }
 
