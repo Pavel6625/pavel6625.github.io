@@ -294,9 +294,9 @@
   variants: [480, 960]
 "/assets/img/GraphMaze.png":
   slug: "graphmaze-a417dcc8"
-  width: 1267
-  height: 689
-  variants: [480, 960]
+  width: 2560
+  height: 1440
+  variants: [480, 960, 1600]
 "/assets/img/IMG_0669-Enhanced-NR.jpg":
   slug: "img-0669-enhanced-nr-15176e38"
   width: 2851
