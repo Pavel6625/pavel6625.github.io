@@ -175,7 +175,7 @@ image: /assets/img/20241016_ПП_-1293.jpg
 <figure class="figure w-100">
     <img src="/assets/img/photo_2024-11-30_13-10-06.jpg"
          class="figure-img img-fluid mx-auto d-block"
-         style="max-height:500px;"
+         style="max-height:500px;width:auto"
          alt="Титульный лист программки">
     <figcaption class="figure-caption text-center fst-italic">Титульный лист программки</figcaption>
 </figure>
