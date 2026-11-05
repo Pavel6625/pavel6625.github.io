@@ -19,7 +19,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="site-nav">
-        <ul class="navbar-nav ms-lg-auto align-items-lg-center mt-3 mt-lg-0">
+        <ul class="navbar-nav flex-row flex-wrap justify-content-between column-gap-3 column-gap-lg-0 ms-lg-auto align-items-center mt-2 mt-lg-0 order-2 order-lg-1">
 
           <li class="nav-item">
             <a class="nav-link{% if page.url == '/music/' %} active{% endif %}" href="{{ music_url }}"
@@ -46,6 +46,10 @@
                {% if page.url == '/about/' %}aria-current="page"{% endif %}>{% t nav.about %}</a>
           </li>
 
+        </ul>
+
+        <ul class="navbar-nav flex-row justify-content-between align-items-center column-gap-3 column-gap-lg-0 mt-3 mt-lg-0 ms-lg-2 gap-lg-2 order-1 order-lg-2">
+
           <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2{% if page.url == '/search/' %} active{% endif %}" href="{{ search_url }}"
                {% if page.url == '/search/' %}aria-current="page"{% endif %}>
@@ -57,14 +61,14 @@
             </a>
           </li>
 
-          <li class="nav-item ms-lg-2 mt-2 mt-lg-0 d-flex align-items-center">
+          <li class="nav-item d-flex align-items-center">
             <button type="button" id="theme-toggle" class="theme-toggle" aria-label="{% t nav.theme %}" title="{% t nav.theme %}">
               <span class="theme-toggle-light" aria-hidden="true">{% include icons/moon-stars.svg %}</span>
               <span class="theme-toggle-dark" aria-hidden="true">{% include icons/sun.svg %}</span>
             </button>
           </li>
 
-          <li class="nav-item dropdown ms-lg-2 mt-2 mt-lg-0">
+          <li class="nav-item dropdown">
             <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="languageMenuButton"
                     data-bs-toggle="dropdown" aria-expanded="false">
               {% include icons/translate.svg %} {% t language %}

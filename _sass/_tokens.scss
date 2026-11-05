@@ -153,3 +153,12 @@
   --bs-navbar-brand-hover-color: var(--ink);
   --bs-navbar-toggler-border-color: transparent;
 }
+
+// Mobile: controls row (search / theme / language) first, then section links,
+// both spread across the full width.
+@media (max-width: 991.98px) {
+  .navbar .navbar-collapse.show {
+    display: flex;
+    flex-direction: column;
+  }
+}
